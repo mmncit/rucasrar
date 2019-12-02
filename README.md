@@ -1,24 +1,52 @@
-# README
+# rucasrar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple rails app for a post-management system using the Cassandra database
 
-Things you may want to cover:
+## Requirements:
 
-* Ruby version
+- Ruby ~> 2.5.7
+- Rails ~> 5.2.4
+- Cassandra ~> 3.11.5
+  
+## Setup instructions:
 
-* System dependencies
 
-* Configuration
+* Initialize Cassandra keyspace (database)
 
-* Database creation
+    ```
+    $ rake cequel:keyspace:create
+    ```
 
-* Database initialization
+* Synchronize your Rails model schemas with Cassandra keyspace
 
-* How to run the test suite
+    ```
+    $ rake cequel:migrate
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Start the Rails server
 
-* Deployment instructions
+    ```
+    $ rails s
+    ```
 
-* ...
+* Check the application
+
+    ```
+    $ open http://localhost:3000
+    ```
+
+
+## References:
+
+- [Apache Cassandra](http://cassandra.apache.org)
+
+- [Cequel](https://github.com/cequel/cequel)
+
+- [conradwt/cassandra-example-using-rails](https://github.com/conradwt/cassandra-example-using-rails)
+
+- [Altoros/simple-rails-app-with-cassandra](https://github.com/Altoros/simple-rails-app-with-cassandra)
+
+
+## License:
+
+This repository is released under the [MIT License](http://www.opensource.org/licenses/MIT).
